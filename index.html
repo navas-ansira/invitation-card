@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+
+  <title>Wedding Reception | Ansira & Navas</title>
+
+  <meta name="description"
+    content="Join Dr. Ansira Shirin & Dr. Mohammed Navas as they celebrate their wedding reception — 18 October 2026, KVM Convention Centre, Koorada.">
+
+  <meta property="og:title" content="Ansira & Navas — Wedding Reception">
+  <meta property="og:description" content="18 October 2026 • KVM Convention Centre, Koorada">
+  <meta property="og:type" content="website">
+
+  <meta name="theme-color" content="#090806">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Italianno&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #080806;
+      --black-soft: #11100d;
+      --cream: #f4ead7;
+      --cream-soft: #d9cbb0;
+      --gold: #d8b56a;
+      --gold-bright: #f0d28a;
+      --gold-dark: #80632d;
+      --muted: #958873;
+      --line: rgba(216, 181, 106, .28);
+      --white: #fffaf0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% -10%, rgba(216, 181, 106, .10), transparent 38%),
+        radial-gradient(circle at 0% 70%, rgba(216, 181, 106, .045), transparent 35%),
+        var(--black);
+
+      color: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .page {
+      width: min(100%, 520px);
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* =========================================================
+       INTRO / CINEMATIC OPENING
+    ========================================================= */
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(216, 181, 106, .11), transparent 25%),
+        #080806;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition:
+        opacity 1.4s cubic-bezier(.77, 0, .18, 1),
+        visibility 1.4s;
+    }
+
+    .intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-content {
+      width: min(90%, 430px);
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .intro-kicker {
+      font-size: .62rem;
+      letter-spacing: .42em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      opacity: 0;
+      animation: introFade 1.2s .3s forwards;
+    }
+
+    .intro-monogram {
+      width: 118px;
+      height: 118px;
+      margin: auto;
+      border: 1px solid rgba(216, 181, 106, .55);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      opacity: 0;
+      transform: scale(.75);
+      animation: monogramIn 1.6s .5s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .intro-monogram::before,
+    .intro-monogram::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(216, 181, 106, .15);
+    }
+
+    .intro-monogram::before {
+      inset: -10px;
+    }
+
+    .intro-monogram::after {
+      inset: -21px;
+      border-color: rgba(216, 181, 106, .07);
+    }
+
+    .intro-monogram span {
+      font-family: "Italianno", cursive;
+      font-size: 3.4rem;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+
+    .intro-names {
+      margin-top: 34px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.7rem, 12vw, 4rem);
+      font-weight: 300;
+      line-height: .95;
+      letter-spacing: .015em;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: introText 1.2s .9s forwards;
+    }
+
+    .intro-names em {
+      display: block;
+      font-family: "Italianno", cursive;
+      font-size: 2.1rem;
+      color: var(--gold);
+      margin: 9px 0;
+    }
+
+    .intro-date {
+      margin-top: 30px;
+      font-size: .65rem;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      animation: introFade 1s 1.3s forwards;
+    }
+
+    .enter-button {
+      margin-top: 38px;
+      padding: 14px 28px;
+      border: 1px solid var(--gold);
+      border-radius: 100px;
+      color: var(--gold-bright);
+      font-size: .64rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: introFade 1s 1.7s forwards;
+      transition: all .4s ease;
+    }
+
+    .enter-button:hover {
+      background: var(--gold);
+      color: var(--black);
+      box-shadow: 0 0 35px rgba(216, 181, 106, .22);
+    }
+
+    .intro-line {
+      width: 1px;
+      height: 65px;
+      background: linear-gradient(var(--gold), transparent);
+      margin: 25px auto 0;
+      opacity: 0;
+      animation: introFade 1s 2s forwards;
+    }
+
+    @keyframes introFade {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes introText {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes monogramIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* =========================================================
+       PARTICLES
+    ========================================================= */
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0;
+      animation: floatParticle linear infinite;
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(105vh) scale(.5);
+        opacity: 0;
+      }
+
+      12% {
+        opacity: .55;
+      }
+
+      85% {
+        opacity: .25;
+      }
+
+      100% {
+        transform: translateY(-10vh) translateX(var(--drift)) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+      padding: 70px 22px 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(216, 181, 106, .14);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    .arabic-inspired {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: .85rem;
+      letter-spacing: .04em;
+    }
+
+    .small-label {
+      margin-top: 28px;
+      font-size: .58rem;
+      letter-spacing: .38em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .hero-names {
+      margin-top: 22px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.4rem, 15vw, 5rem);
+      font-weight: 300;
+      line-height: .82;
+      letter-spacing: -.025em;
+    }
+
+    .hero-names .name {
+      display: block;
+    }
+
+    .hero-names .amp {
+      font-family: "Italianno", cursive;
+      font-size: 3.2rem;
+      color: var(--gold);
+      display: block;
+      margin: 12px 0;
+    }
+
+    .hero-divider {
+      width: 100px;
+      height: 1px;
+      margin: 34px auto 0;
+      background: linear-gradient(90deg,
+          transparent,
+          var(--gold),
+          transparent);
+    }
+
+    .hero-date {
+      margin-top: 25px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      letter-spacing: .12em;
+    }
+
+    .hero-location {
+      margin-top: 8px;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .55rem;
+      letter-spacing: .35em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .hero-scroll::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 38px;
+      margin: 10px auto 0;
+      background: linear-gradient(var(--gold), transparent);
+      animation: scrollLine 1.8s infinite;
+    }
+
+    @keyframes scrollLine {
+
+      0%,
+      100% {
+        opacity: .2;
+        transform: scaleY(.5);
+        transform-origin: top;
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    /* =========================================================
+       ORNAMENT
+    ========================================================= */
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px auto;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      width: 45px;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          var(--gold));
+    }
+
+    .ornament::after {
+      background: linear-gradient(90deg,
+          var(--gold),
+          transparent);
+    }
+
+    .ornament span {
+      color: var(--gold);
+      font-size: .7rem;
+    }
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
+
+    section {
+      padding: 95px 25px;
+      position: relative;
+    }
+
+    .section-kicker {
+      text-align: center;
+      font-size: .58rem;
+      letter-spacing: .38em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.55rem;
+      font-weight: 300;
+      margin-top: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      margin: 10px auto 0;
+      max-width: 330px;
+      color: var(--muted);
+      font-size: .74rem;
+      line-height: 1.7;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       FAMILY / INVITATION
+    ========================================================= */
+
+    .invitation {
+      background:
+        linear-gradient(180deg,
+          transparent,
+          rgba(216, 181, 106, .025),
+          transparent);
+    }
+
+    .family-card {
+      margin-top: 40px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 38px 18px;
+      text-align: center;
+    }
+
+    .family-label {
+      font-size: .55rem;
+      letter-spacing: .3em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .family-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      margin-bottom: 3px;
+    }
+
+    .family-and {
+      font-family: "Italianno", cursive;
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+
+    .family-house {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .06em;
+    }
+
+    .invitation-copy {
+      margin-top: 42px;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      line-height: 1.55;
+      color: var(--cream-soft);
+    }
+
+    .invitation-copy em {
+      color: var(--gold);
+      font-family: "Italianno", cursive;
+      font-size: 1.8rem;
+      font-style: normal;
+    }
+
+    /* =========================================================
+       DATE / COUNTDOWN
+    ========================================================= */
+
+    .date-section {
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 50%,
+          rgba(216, 181, 106, .07),
+          transparent 55%);
+    }
+
+    .big-date {
+      margin-top: 38px;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+      font-size: 5.5rem;
+      line-height: .8;
+      color: var(--gold-bright);
+    }
+
+    .big-month {
+      margin-top: 18px;
+      font-size: .72rem;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: var(--cream-soft);
+    }
+
+    .big-day {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 48px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 0;
+    }
+
+    .count-item {
+      position: relative;
+    }
+
+    .count-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 5px;
+      height: 45px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .count-number {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.9rem;
+      color: var(--cream);
+    }
+
+    .count-label {
+      display: block;
+      margin-top: 5px;
+      font-size: .48rem;
+      letter-spacing: .18em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       EVENT
+    ========================================================= */
+
+    .event-panel {
+      margin-top: 42px;
+      border: 1px solid var(--line);
+      padding: 35px 24px;
+      position: relative;
+      background: rgba(255, 255, 255, .015);
+    }
+
+    .event-panel::before {
+      content: "✦";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--black);
+      padding: 0 12px;
+      color: var(--gold);
+      font-size: .7rem;
+    }
+
+    .event-row {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(216, 181, 106, .12);
+    }
+
+    .event-row:last-child {
+      border-bottom: 0;
+    }
+
+    .event-icon {
+      width: 35px;
+      height: 35px;
+      flex: 0 0 35px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: .8rem;
+    }
+
+    .event-label {
+      color: var(--muted);
+      font-size: .52rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .event-value {
+      margin-top: 5px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.18rem;
+    }
+
+    .event-note {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .68rem;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    .buttons {
+      display: grid;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .gold-button,
+    .outline-button {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 100px;
+      text-align: center;
+      font-size: .58rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      transition: all .35s ease;
+    }
+
+    .gold-button {
+      background: var(--gold);
+      color: #171208;
+    }
+
+    .gold-button:hover {
+      background: var(--gold-bright);
+      box-shadow: 0 12px 35px rgba(216, 181, 106, .18);
+      transform: translateY(-2px);
+    }
+
+    .outline-button {
+      border: 1px solid var(--line);
+      color: var(--gold);
+    }
+
+    .outline-button:hover {
+      border-color: var(--gold);
+      background: rgba(216, 181, 106, .06);
+    }
+
+    /* =========================================================
+       VENUE
+    ========================================================= */
+
+    .venue-card {
+      margin-top: 42px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #0d0c09;
+    }
+
+    .venue-map {
+      width: 100%;
+      height: 280px;
+      border: 0;
+      display: block;
+      filter: grayscale(.9) contrast(1.15) brightness(.7);
+    }
+
+    .venue-info {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .venue-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+    }
+
+    .venue-place {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       FINAL
+    ========================================================= */
+
+    .closing {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 110px;
+    }
+
+    .closing-inner {
+      width: 100%;
+    }
+
+    .closing-monogram {
+      width: 86px;
+      height: 86px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      color: var(--gold);
+      font-family: "Italianno", cursive;
+      font-size: 2.5rem;
+      box-shadow:
+        0 0 0 10px rgba(216, 181, 106, .025),
+        0 0 0 20px rgba(216, 181, 106, .012);
+    }
+
+    .closing-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+    }
+
+    .closing-text {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1.7;
+    }
+
+    .footer-line {
+      margin-top: 40px;
+      font-size: .5rem;
+      letter-spacing: .3em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       GOLD CURSOR GLOW
+    ========================================================= */
+
+    .cursor-glow {
+      position: fixed;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+          rgba(216, 181, 106, .06),
+          transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: left .15s ease, top .15s ease;
+    }
+
+    @media (hover: none) {
+      .cursor-glow {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="locked">
+
+  <!-- =========================================================
+       CINEMATIC INTRO
+  ========================================================= -->
+
+  <div class="intro" id="intro">
+
+    <div class="intro-content">
+
+      <div class="intro-kicker">
+        A Celebration of Love
+      </div>
+
+      <div class="intro-monogram">
+        <span>A &amp; N</span>
+      </div>
+
+      <div class="intro-names">
+        Ansira
+        <em>&amp;</em>
+        Navas
+      </div>
+
+      <div class="intro-date">
+        18 October 2026
+      </div>
+
+      <button class="enter-button" id="enterButton">
+        Enter Invitation
+      </button>
+
+      <div class="intro-line"></div>
+
+    </div>
+  </div>
+
+
+  <!-- PARTICLES -->
+
+  <div id="particles"></div>
+
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+
+  <!-- =========================================================
+       MAIN PAGE
+  ========================================================= -->
+
+  <div class="page">
+
+    <main>
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-content">
+
+          <p class="arabic-inspired reveal">
+            In the name of Allah, the Most Gracious, the Most Merciful
+          </p>
+
+          <p class="small-label reveal">
+            Together with their families
+          </p>
+
+          <h1 class="hero-names reveal">
+
+            <span class="name">Ansira</span>
+
+            <span class="amp">&amp;</span>
+
+            <span class="name">Navas</span>
+
+          </h1>
+
+          <div class="hero-divider reveal"></div>
+
+          <p class="hero-date reveal">
+            18 · 10 · 2026
+          </p>
+
+          <p class="hero-location reveal">
+            KVM Convention Centre · Koorada
+          </p>
+
+        </div>
+
+        <div class="hero-scroll">
+          Discover
+        </div>
+
+      </section>
+
+
+      <!-- INVITATION -->
+
+      <section class="invitation">
+
+        <div class="section-kicker reveal">
+          With Joy &amp; Gratitude
+        </div>
+
+        <h2 class="section-title reveal">
+          You Are Invited
+        </h2>
+
+        <div class="ornament reveal">
+          <span>✦</span>
+        </div>
+
+        <div class="family-card reveal">
+
+          <div class="family-label">
+            Mr. Abdulla Madambikkatil &amp; Family
+          </div>
+
+          <div class="family-name">
+            Mr. Abdulla Madambikkatil
+          </div>
+
+          <div class="family-and">
+            &amp;
+          </div>
+
+          <div class="family-name">
+            Mrs. Noorjahan K
+          </div>
+
+          <div class="family-house">
+            Madambikkatil House · Koorada
+          </div>
+
+        </div>
+
+        <p class="invitation-copy reveal">
+          We cordially invite you and your family
+          to join us as we celebrate the wedding of our beloved daughter
+          <em>Ansira</em>
+          with
+          <em>Navas</em>.
+        </p>
+
+        <div class="family-card reveal">
+
+          <div class="family-label">
+            With the blessings of
+          </div>
+
+          <div class="family-name">
+            Mr. Abdul Nazer
+          </div>
+
+          <div class="family-and">
+            &amp;
+          </div>
+
+          <div class="family-name">
+            Mrs. Jameela K
+          </div>
+
+          <div class="family-house">
+            Ponneth House · Chappanangadi
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- DATE / COUNTDOWN -->
+
+      <section class="date-section">
+
+        <div class="section-kicker reveal">
+          Save The Date
+        </div>
+
+        <h2 class="section-title reveal">
+          The Day We Celebrate
+        </h2>
+
+        <div class="big-date reveal">
+          18
+        </div>
+
+        <div class="big-month reveal">
+          October · 2026
+        </div>
+
+        <div class="big-day reveal">
+          Sunday · 11:00 AM — 3:00 PM
+        </div>
+
+
+        <div class="countdown reveal">
+
+          <div class="count-item">
+            <span class="count-number" id="days">00</span>
+            <span class="count-label">Days</span>
+          </div>
+
+          <div class="count-item">
+            <span class="count-number" id="hours">00</span>
+            <span class="count-label">Hours</span>
+          </div>
+
+          <div class="count-item">
+            <span class="count-number" id="minutes">00</span>
+            <span class="count-label">Minutes</span>
+          </div>
+
+          <div class="count-item">
+            <span class="count-number" id="seconds">00</span>
+            <span class="count-label">Seconds</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- EVENT -->
+
+      <section>
+
+        <div class="section-kicker reveal">
+          The Celebration
+        </div>
+
+        <h2 class="section-title reveal">
+          Join Us
+        </h2>
+
+        <p class="section-subtitle reveal">
+          Your presence will make this beautiful occasion
+          even more special.
+        </p>
+
+
+        <div class="event-panel reveal">
+
+          <div class="event-row">
+
+            <div class="event-icon">
+              ♢
+            </div>
+
+            <div>
+              <div class="event-label">
+                Date
+              </div>
+
+              <div class="event-value">
+                Sunday, 18 October 2026
+              </div>
+
+              <div class="event-note">
+                11:00 AM to 3:00 PM
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="event-row">
+
+            <div class="event-icon">
+              ◇
+            </div>
+
+            <div>
+              <div class="event-label">
+                Venue
+              </div>
+
+              <div class="event-value">
+                KVM Convention Centre
+              </div>
+
+              <div class="event-note">
+                Koorada
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="buttons">
+
+            <a class="gold-button"
+              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception+-+Dr.+Mohammed+Navas+%26+Dr.+Ansira+Shirin&dates=20261018T110000/20261018T150000&location=KVM+Convention+Centre%2C+Koorada&details=We+cordially+invite+you+to+celebrate+with+us."
+              target="_blank" rel="noopener">
+              Add to Google Calendar
+            </a>
+
+            <a class="outline-button" href="https://maps.app.goo.gl/1MW8aJK54PTmfSj56" target="_blank" rel="noopener">
+              Get Directions
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- VENUE -->
+
+      <section>
+
+        <div class="section-kicker reveal">
+          Find Us
+        </div>
+
+        <h2 class="section-title reveal">
+          The Venue
+        </h2>
+
+        <p class="section-subtitle reveal">
+          KVM Convention Centre · Koorada
+        </p>
+
+
+        <div class="venue-card reveal">
+
+          <iframe class="venue-map"
+            src="https://maps.google.com/maps?q=KVM%20Convention%20Centre%20Koorada&z=15&t=k&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="KVM Convention Centre, Koorada">
+          </iframe>
+
+          <div class="venue-info">
+
+            <div class="venue-name">
+              KVM Convention Centre
+            </div>
+
+            <div class="venue-place">
+              Koorada
+            </div>
+
+            <div class="buttons">
+
+              <a class="gold-button" href="https://maps.app.goo.gl/1MW8aJK54PTmfSj56" target="_blank" rel="noopener">
+                Open in Google Maps
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- CLOSING -->
+
+      <section class="closing">
+
+        <div class="closing-inner">
+
+          <div class="closing-monogram reveal">
+            A&amp;N
+          </div>
+
+          <div class="section-kicker reveal">
+            With Love
+          </div>
+
+          <h2 class="closing-title reveal">
+            We Can't Wait<br>
+            To Celebrate With You
+          </h2>
+
+          <p class="closing-text reveal">
+            18 October 2026<br>
+            KVM Convention Centre · Koorada
+          </p>
+
+          <div class="footer-line reveal">
+            Ansira &amp; Navas · 2026
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+    (() => {
+
+      "use strict";
+
+
+      /* -------------------------------------------------------
+         INTRO
+      ------------------------------------------------------- */
+
+      const intro = document.getElementById("intro");
+      const enterButton = document.getElementById("enterButton");
+
+      function enterInvitation() {
+
+        intro.classList.add("hidden");
+
+        document.body.classList.remove("locked");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "instant"
+        });
+
+      }
+
+      enterButton.addEventListener("click", enterInvitation);
+
+
+      /* -------------------------------------------------------
+         GOLD PARTICLES
+      ------------------------------------------------------- */
+
+      const particleField =
+        document.getElementById("particles");
+
+      for (let i = 0; i < 34; i++) {
+
+        const particle =
+          document.createElement("span");
+
+        particle.className = "particle";
+
+        particle.style.left =
+          Math.random() * 100 + "vw";
+
+        particle.style.setProperty(
+          "--drift",
+          (Math.random() * 100 - 50) + "px"
+        );
+
+        particle.style.animationDuration =
+          (12 + Math.random() * 16) + "s";
+
+        particle.style.animationDelay =
+          (-Math.random() * 20) + "s";
+
+        const size =
+          1 + Math.random() * 2;
+
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+
+        particleField.appendChild(particle);
+
+      }
+
+
+      /* -------------------------------------------------------
+         COUNTDOWN
+         11:00 AM LOCAL TIME
+      ------------------------------------------------------- */
+
+      const target =
+        new Date(
+          2026,
+          9,
+          18,
+          11,
+          0,
+          0
+        ).getTime();
+
+
+      function updateCountdown() {
+
+        let diff =
+          target - Date.now();
+
+        if (diff <= 0) {
+
+          document.getElementById("days").textContent = "00";
+          document.getElementById("hours").textContent = "00";
+          document.getElementById("minutes").textContent = "00";
+          document.getElementById("seconds").textContent = "00";
+
+          return;
+
+        }
+
+        const days =
+          Math.floor(diff / 86400000);
+
+        diff %= 86400000;
+
+        const hours =
+          Math.floor(diff / 3600000);
+
+        diff %= 3600000;
+
+        const minutes =
+          Math.floor(diff / 60000);
+
+        const seconds =
+          Math.floor((diff % 60000) / 1000);
+
+
+        document.getElementById("days").textContent =
+          String(days).padStart(2, "0");
+
+        document.getElementById("hours").textContent =
+          String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").textContent =
+          String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").textContent =
+          String(seconds).padStart(2, "0");
+
+      }
+
+
+      updateCountdown();
+
+      setInterval(updateCountdown, 1000);
+
+
+      /* -------------------------------------------------------
+         SCROLL REVEALS
+      ------------------------------------------------------- */
+
+      const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+      if ("IntersectionObserver" in window) {
+
+        const observer =
+          new IntersectionObserver(
+
+            entries => {
+
+              entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                  entry.target.classList.add("show");
+
+                  observer.unobserve(entry.target);
+
+                }
+
+              });
+
+            },
+
+            {
+              threshold: .12,
+              rootMargin: "0px 0px -50px 0px"
+            }
+
+          );
+
+
+        revealElements.forEach(el =>
+          observer.observe(el)
+        );
+
+      } else {
+
+        revealElements.forEach(el =>
+          el.classList.add("show")
+        );
+
+      }
+
+
+      /* -------------------------------------------------------
+         DESKTOP GOLD LIGHT
+      ------------------------------------------------------- */
+
+      const glow =
+        document.getElementById("cursorGlow");
+
+      window.addEventListener(
+        "pointermove",
+        event => {
+
+          glow.style.left =
+            event.clientX + "px";
+
+          glow.style.top =
+            event.clientY + "px";
+
+        },
+        { passive: true }
+      );
+
+
+      /* -------------------------------------------------------
+         SUBTLE PARALLAX ON HERO
+      ------------------------------------------------------- */
+
+      const hero =
+        document.querySelector(".hero-content");
+
+
+      window.addEventListener(
+        "scroll",
+        () => {
+
+          if (window.innerWidth <= 700)
+            return;
+
+          const y =
+            window.scrollY;
+
+          if (y < window.innerHeight) {
+
+            hero.style.transform =
+              `translateY(${y * .08}px)`;
+
+            hero.style.opacity =
+              Math.max(
+                .2,
+                1 - y / (window.innerHeight * .85)
+              );
+
+          }
+
+        },
+        { passive: true }
+      );
+
+
+    })();
+
+  </script>
+
+</body>
+
+</html>
